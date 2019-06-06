@@ -1,0 +1,88 @@
+public class Text {
+    private String header;
+    private String txt;
+
+    public Text(Word word) {
+        header = word.getW();
+    }
+
+    public Text(Sentence sentence) {
+        header = sentence.getS();
+    }
+
+    public String getHeader() {
+        return header;
+    }
+
+    public void addTxt(Word word) {
+        txt += " " + word.getW();
+    }
+
+    public void addTxt(Sentence sentence) {
+        txt += " " + sentence.getS();
+    }
+
+    public String getTxt() {
+        return txt;
+    }
+}
+
+
+public class Sentence {
+    private String s;
+
+    public Sentence(String s) {
+        this.s = s;
+    }
+
+    public Sentence() {
+        this.s = s;
+    }
+
+
+    public void addS(Word word) {
+        s += " " + word.getW();
+    }
+
+    public String getS() {
+        return s;
+    }
+}
+
+
+public class Word {
+    private String w;
+
+    public Word(String w) {
+        this.w = w;
+    }
+
+    public String getW() {
+        return w;
+    }
+}
+
+
+public class MainText {
+    public static void main(String[] args) {
+        Sentence sentence = new Sentence("viva la revolution");
+        Text text = new Text(sentence);
+
+        Word word1 = new Word("Hasta");
+        Word word2 = new Word("siempre");
+        Word word3 = new Word(",");
+        Word word4 = new Word("Comandante");
+
+        Sentence sentence2 = new Sentence();
+        sentence2.addS(word1);
+        sentence2.addS(word2);
+        sentence2.addS(word3);
+        sentence2.addS(word4);
+
+        text.addTxt(sentence2);
+
+        System.out.println("Head: "+text.getHeader());
+        System.out.println("Text: "+text.getTxt());
+
+    }
+}
